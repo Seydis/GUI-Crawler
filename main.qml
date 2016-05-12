@@ -1,8 +1,13 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
-import QtQuick.Controls 1.1
+import QtQuick.Controls 1.2
+import com.test.afisare 1.0
 
 Window {
+
+    property int textMargin: 5
+    property int textBorderWidth: 2
+
     visible: true
     width: 640
     height: 480
@@ -12,9 +17,6 @@ Window {
     maximumWidth: 680
     minimumWidth: 680
     title: qsTr("Crawler")
-
-    property int textMargin: 5
-    property int textBorderWidth: 2
 
 
 
@@ -126,6 +128,8 @@ Window {
                     }
                 }
 
+
+
             }
 
         }
@@ -143,14 +147,19 @@ Window {
                     text: "Trimite"
 
                    onClicked: {
-                       inserttextId.visible = false;
+                       //inserttextId.visible = false;
                        //buttonRectId.visible = false;
+                    //   submitTextField(textInputId.text)
+                       afisare.showData();
+                       afisare.setData(textInputId.text);
+                       afisare.showData();
                    }
 
                 }
             }
 
-
+            Afisare{id: afisare; myData: "data"}
+            //Afisare{id: afisare;}
             mouseArea.onClicked: {
              //   Qt.quit();
            }
